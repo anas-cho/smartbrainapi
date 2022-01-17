@@ -10,13 +10,8 @@ const image = require('./controllers/image');
 
 const dbk = knex({
   client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    port : 5432,
-    user : 'anas',
-    password : '',
-    database : 'smart-brain'
-  }
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
 });
 
 const app = express();
